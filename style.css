@@ -1,0 +1,177 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #141e30, #243b55);
+    color: #eef2ff;
+    padding: 20px;
+}
+
+.main {
+    width: 100%;
+    max-width: 620px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    backdrop-filter: blur(10px);
+    border-radius: 18px;
+    padding: 28px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+/* Ավելացնում ենք սահուն անցում բոլոր todo-item-ների համար */
+.todo-item {
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.fa-solid{
+cursor: pointer;
+}
+
+/* Հետաքրքիր տեսք, երբ առաջադրանքը նշվում է որպես արված (completed) */
+.todo-item.completed {
+    text-decoration: line-through;
+    text-decoration-color: #ff4757; /* Կարմիր գույնով ջնջված */
+    text-decoration-thickness: 3px;
+    opacity: 0.6; /* Դառնում է մի փոքր թափանցիկ */
+    transform: scale(0.95) translateX(10px); /* Փոքրանում է և շարժվում աջ */
+    background-color: #f1f2f6; /* Ֆոնի գույնը փոխվում է */
+}
+form {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 10px;
+    margin-bottom: 22px;
+}
+
+.todo-input,
+.filter-todo,
+.todo-button {
+    border: none;
+    outline: none;
+    border-radius: 12px;
+    font-size: 15px;
+}
+
+.todo-input {
+    padding: 12px 14px;
+    background: rgba(255, 255, 255, 0.95);
+    color: #1f2937;
+}
+
+.todo-input::placeholder {
+    color: #6b7280;
+}
+
+.todo-button {
+    width: 46px;
+    height: 46px;
+    cursor: pointer;
+    background: linear-gradient(135deg, #4f46e5, #7c3aed);
+    color: #ffffff;
+    font-size: 17px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.todo-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(79, 70, 229, 0.45);
+}
+
+.filter-todo {
+    min-width: 120px;
+    padding: 0 10px;
+    background: rgba(255, 255, 255, 0.95);
+    color: #1f2937;
+    cursor: pointer;
+}
+
+.todo-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Ավելացնում ենք սահուն անցում բոլոր todo-item-ների համար */
+.todo-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: rgba(255, 255, 255, 0.92);
+    color: #111827;
+    padding: 14px 16px;
+    border-radius: 12px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.todo-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.todo-text {
+    flex: 1;
+    font-weight: 500;
+}
+
+.todo-item .fa-check,
+.todo-item .fa-trash {
+    cursor: pointer;
+    font-size: 16px;
+    padding: 8px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.todo-item .fa-check {
+    color: #059669;
+}
+
+.todo-item .fa-check:hover {
+    background: rgba(16, 185, 129, 0.15);
+    transform: scale(1.08);
+}
+
+.todo-item .fa-trash {
+    color: #dc2626;
+}
+
+.todo-item .fa-trash:hover {
+    background: rgba(239, 68, 68, 0.14);
+    transform: scale(1.08);
+}
+
+.todo-item.completed .todo-text {
+/* Հետաքրքիր տեսք, երբ առաջադրանքը նշվում է որպես արված (completed) */
+.todo-item.completed {
+    text-decoration: line-through;
+    color: #6b7280;
+    text-decoration-color: #ff4757; /* Կարմիր գույնով ջնջված */
+    text-decoration-thickness: 3px;
+    opacity: 0.6; /* Դառնում է մի փոքր թափանցիկ */
+    transform: scale(0.95) translateX(10px); /* Փոքրանում է և շարժվում աջ */
+    background-color: #f1f2f6; /* Ֆոնի գույնը փոխվում է */
+}
+
+@media (max-width: 600px) {
+    .main {
+        padding: 20px;
+    }
+
+    form {
+        grid-template-columns: 1fr;
+    }
+
+    .todo-button,
+    .filter-todo {
+        width: 100%;
+        height: 42px;
+    }
+}
